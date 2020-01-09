@@ -1,0 +1,69 @@
+#head,
+#umbrella,
+#smallGrass,
+#leaf,
+#largeGrass{
+    @include anchorCentering;
+}
+#head {
+    animation: headWiggle 1s alternate ease infinite;
+}
+#umbrella {
+    animation: umbrellaWiggle 0.2s alternate ease infinite;
+}
+
+#smallGrass {
+    animation: smallGrassnAnim 0.7s alternate ease infinite;
+}
+#largeGrass {
+    animation: largeGrassnAnim 1s alternate ease infinite;
+}
+#leaf{
+    animation: leafAnim 0.4s alternate ease infinite;
+}
+@keyframes headWiggle {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateZ(-5deg);
+    }
+}
+
+@keyframes umbrellaWiggle {
+    0% {
+        transform: rotateZ(-1deg);
+    }
+
+    100% {
+        transform: rotateZ(1deg);
+    }
+}
+@keyframes smallGrassnAnim {
+    0% {
+        transform: rotateZ(3deg);
+    }
+
+    100% {
+        transform: rotateZ(-4deg);
+    }
+}
+@keyframes largeGrassnAnim {
+    0% {
+        transform: rotateZ(1deg);
+    }
+
+    100% {
+        transform: rotateZ(-1deg);
+    }
+}
+@keyframes leafAnim {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateZ(-4deg);
+    }
+}

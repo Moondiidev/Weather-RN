@@ -1,1 +1,126 @@
+#head,
+#umbrella,
+#smallGrass,
+#leaf,
+#largeGrass {
+  transform-origin: center;
+  transform-box: fill-box; }
 
+#head {
+  animation: headWiggle 1s alternate ease infinite; }
+
+#umbrella {
+  animation: umbrellaWiggle 0.2s alternate ease infinite; }
+
+#smallGrass {
+  animation: smallGrassnAnim 0.7s alternate ease infinite; }
+
+#largeGrass {
+  animation: largeGrassnAnim 1s alternate ease infinite; }
+
+#leaf {
+  animation: leafAnim 0.4s alternate ease infinite; }
+
+@keyframes headWiggle {
+  0% {
+    transform: rotateZ(0deg); }
+  100% {
+    transform: rotateZ(-5deg); } }
+
+@keyframes umbrellaWiggle {
+  0% {
+    transform: rotateZ(-1deg); }
+  100% {
+    transform: rotateZ(1deg); } }
+
+@keyframes smallGrassnAnim {
+  0% {
+    transform: rotateZ(3deg); }
+  100% {
+    transform: rotateZ(-4deg); } }
+
+@keyframes largeGrassnAnim {
+  0% {
+    transform: rotateZ(1deg); }
+  100% {
+    transform: rotateZ(-1deg); } }
+
+@keyframes leafAnim {
+  0% {
+    transform: rotateZ(0deg); }
+  100% {
+    transform: rotateZ(-4deg); } }
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+#playground {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  border-bottom: 5px solid #3F3D55; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  color: white; }
+
+.heading-primary {
+  font-size: 100px;
+  font-weight: bold; }
+
+.heading-secondary {
+  font-size: 30px;
+  font-weight: 700; }
+
+.time {
+  display: block;
+  color: yellow; }
+
+#particles-js {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to bottom, #928b82, #b0a99f);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  padding-top: 4rem; }
+
+.clouds {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(5, minmax(0.5rem, 1fr));
+  margin-top: -4rem;
+  margin-left: -3rem; }
+
+.sun {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 6rem;
+  width: auto; }
+
+.cloud {
+  margin-right: 4rem;
+  width: 40rem;
+  z-index: 1; }
+
+.umbrellaWoman {
+  height: 200px;
+  width: auto;
+  position: absolute;
+  bottom: 0;
+  left: 0; }
+
+.weatherInfo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; }

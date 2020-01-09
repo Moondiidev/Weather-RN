@@ -1,0 +1,37 @@
+@mixin absCenter{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+@mixin anchorCentering{
+    transform-origin: center;
+    transform-box: fill-box;
+}
+@mixin respond($size){
+    @if($size == phone){
+        @media only screen and (max-width: 600px){
+            @content;
+        }
+    }
+    @else if ($size == tab-port){
+        @media only screen and (max-width: 900px){
+            @content;
+        }    }
+    @else if ($size == tab-land){
+        @media only screen and (max-width: 1000px){
+            @content;
+        }    }
+    @else if ($size == web-sm){
+        @media only screen and (max-width: 1300px){
+            @content;
+        }    }
+    @else if ($size == web-md){
+        @media only screen and (max-width: 1600px){
+            @content;
+        }    }
+    @else if ($size == web-lg){
+        @media only screen and (min-width: 1800px){
+            @content;
+        }    }
+}

@@ -1,0 +1,40 @@
+#particles-js{
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to bottom,  #928b82, #b0a99f);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    padding-top: 4rem;
+}
+.clouds{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(5,minmax(0.5rem,1fr));
+    margin-top: -4rem;
+    margin-left: -3rem;
+}
+.sun{
+    position: absolute;
+    top:0;
+    right: 0;
+    height: 6rem;
+    width: auto;
+}
+.cloud{
+    margin-right: 4rem;
+    width: 40rem;
+    z-index: 1;
+}
+.umbrellaWoman{
+    height: 200px;
+    width: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.weatherInfo{
+    @include absCenter;
+    text-align: center;
+}
