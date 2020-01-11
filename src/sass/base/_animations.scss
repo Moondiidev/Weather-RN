@@ -1,4 +1,4 @@
-// Rain SVG ANIMATION **************************
+// RAINING SVG ANIMATION **************************
 #umbrella,
 #alienHead,
 #alienHat,
@@ -11,7 +11,9 @@
 #head,
 #s_humanTorso,
 #s_leaf,
-#s_humanHead{
+#s_humanHead,
+#s_LGrass,
+#s_RGrass{
     @include anchorBottoming;
 }
 #sunRay{
@@ -25,10 +27,10 @@
 }
 
 #smallGrass {
-    animation: smallGrassnAnim 0.7s alternate ease infinite;
+    animation: smallGrassAnim 0.7s alternate ease infinite;
 }
 #largeGrass {
-    animation: largeGrassnAnim 1s alternate ease infinite;
+    animation: largeGrassAnim 1s alternate ease infinite;
 }
 #leaf{
     animation: leafAnim 0.4s alternate ease infinite;
@@ -52,7 +54,7 @@
         transform: rotateZ(1deg);
     }
 }
-@keyframes smallGrassnAnim {
+@keyframes smallGrassAnim {
     0% {
         transform: rotateZ(3deg);
     }
@@ -61,7 +63,7 @@
         transform: rotateZ(-4deg);
     }
 }
-@keyframes largeGrassnAnim {
+@keyframes largeGrassAnim {
     0% {
         transform: rotateZ(1deg);
     }
@@ -79,7 +81,7 @@
         transform: rotateZ(-4deg);
     }
 }
-// WINTER SVG ANIMATION **************************
+// SNOWING SVG ANIMATION **************************
 #R_Leg{
     animation: alienRLegAnim 1s alternate ease infinite;
 }
@@ -176,4 +178,21 @@
         transform: rotateZ(-5deg);
     }
 }
-
+// SUNNY SVG ANIMATION **************************
+#s_LGrass{
+    animation: largeGrassAnim 1s alternate infinite;
+}
+#s_RGrass{
+    animation: largeGrassAnim 1s 0.5s alternate infinite;
+}
+#h_womanHair{
+    animation: h_womanHairAnim 1s alternate ease infinite;
+}
+@keyframes h_womanHairAnim{
+    0%{
+        transform: rotateZ(0deg);
+    }
+    100%{
+        transform: rotateZ(-0.5deg);
+    }
+}

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="253px" height="264px" viewBox="0 0 253 264" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="266px" height="264px" viewBox="0 0 266 264" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
     <title>sunRay</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.15">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.1">
         <g id="sunRay" transform="translate(0.000000, -4.000000)" fill="#F8E81C">
-            <polygon id="Triangle" points="244.5 7 253 267 236 267"></polygon>
-            <polygon id="Triangle" transform="translate(205.402142, 135.901974) rotate(17.000000) translate(-205.402142, -135.901974) " points="205.402142 0.901974216 213.902142 270.901974 196.902142 270.901974"></polygon>
-            <polygon id="Triangle" transform="translate(169.641367, 132.842006) rotate(31.000000) translate(-169.641367, -132.842006) " points="169.641367 -16.6579936 178.141367 282.342006 161.141367 282.342006"></polygon>
-            <polygon id="Triangle" transform="translate(127.607648, 128.107648) rotate(45.000000) translate(-127.607648, -128.107648) " points="127.607648 -42.8923523 136.107648 299.107648 119.107648 299.107648"></polygon>
+            <polygon id="Triangle" points="257.5 7 266 267 249 267"></polygon>
+            <polygon id="Triangle" transform="translate(216.402142, 135.901974) rotate(17.000000) translate(-216.402142, -135.901974) " points="216.402142 0.901974216 222.902142 270.901974 209.902142 270.901974"></polygon>
+            <polygon id="Triangle" transform="translate(179.126052, 134.531774) rotate(31.000000) translate(-179.126052, -134.531774) " points="179.126052 -16.9395654 185.126052 286.003114 173.126052 286.003114"></polygon>
+            <polygon id="Triangle" transform="translate(133.742347, 132.840174) rotate(45.000000) translate(-133.742347, -132.840174) " points="133.742347 -49.5242017 139.242347 315.20455 128.242347 315.20455"></polygon>
         </g>
     </g>
 </svg>

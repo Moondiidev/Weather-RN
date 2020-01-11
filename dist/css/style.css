@@ -11,7 +11,9 @@
 #head,
 #s_humanTorso,
 #s_leaf,
-#s_humanHead {
+#s_humanHead,
+#s_LGrass,
+#s_RGrass {
   transform-origin: bottom;
   transform-box: fill-box; }
 
@@ -26,10 +28,10 @@
   animation: umbrellaWiggle 0.2s alternate ease infinite; }
 
 #smallGrass {
-  animation: smallGrassnAnim 0.7s alternate ease infinite; }
+  animation: smallGrassAnim 0.7s alternate ease infinite; }
 
 #largeGrass {
-  animation: largeGrassnAnim 1s alternate ease infinite; }
+  animation: largeGrassAnim 1s alternate ease infinite; }
 
 #leaf {
   animation: leafAnim 0.4s alternate ease infinite; }
@@ -46,13 +48,13 @@
   100% {
     transform: rotateZ(1deg); } }
 
-@keyframes smallGrassnAnim {
+@keyframes smallGrassAnim {
   0% {
     transform: rotateZ(3deg); }
   100% {
     transform: rotateZ(-4deg); } }
 
-@keyframes largeGrassnAnim {
+@keyframes largeGrassAnim {
   0% {
     transform: rotateZ(1deg); }
   100% {
@@ -136,6 +138,21 @@
   100% {
     transform: rotateZ(-5deg); } }
 
+#s_LGrass {
+  animation: largeGrassAnim 1s alternate infinite; }
+
+#s_RGrass {
+  animation: largeGrassAnim 1s 0.5s alternate infinite; }
+
+#h_womanHair {
+  animation: h_womanHairAnim 1s alternate ease infinite; }
+
+@keyframes h_womanHairAnim {
+  0% {
+    transform: rotateZ(0deg); }
+  100% {
+    transform: rotateZ(-0.5deg); } }
+
 *,
 *::after,
 *::before {
@@ -197,7 +214,7 @@ body {
 
 .sunRay {
   top: 0%;
-  right: 4%;
+  right: 50px;
   height: 100%; }
 
 .cloud {
