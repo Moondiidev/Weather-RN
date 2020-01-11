@@ -8,6 +8,14 @@
     transform-origin: center;
     transform-box: fill-box;
 }
+@mixin anchorBottoming{
+    transform-origin: bottom;
+    transform-box: fill-box;
+}
+@mixin anchorTopping{
+    transform-origin: top;
+    transform-box: fill-box;
+}
 @mixin respond($size){
     @if($size == phone){
         @media only screen and (max-width: 600px){

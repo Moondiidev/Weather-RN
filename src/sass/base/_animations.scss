@@ -1,9 +1,21 @@
-#head,
+// Rain SVG ANIMATION **************************
 #umbrella,
+#alienHead,
+#alienHat,
+#s_humanHand{
+    @include anchorCentering;
+}
 #smallGrass,
 #leaf,
-#largeGrass{
-    @include anchorCentering;
+#largeGrass,
+#head,
+#s_humanTorso,
+#s_leaf,
+#s_humanHead{
+    @include anchorBottoming;
+}
+#sunRay{
+    @include anchorTopping;
 }
 #head {
     animation: headWiggle 1s alternate ease infinite;
@@ -67,3 +79,101 @@
         transform: rotateZ(-4deg);
     }
 }
+// WINTER SVG ANIMATION **************************
+#R_Leg{
+    animation: alienRLegAnim 1s alternate ease infinite;
+}
+#L_Leg{
+    animation: alienLLegAnim 1s alternate ease infinite;
+}
+#alienHead{
+    animation: alienHeadAnim 1s alternate ease infinite;
+}
+#alienHat{
+    animation: alienHatAnim 1s alternate ease infinite;
+}
+#s_humanTorso{
+    animation: s_humanTorsoAnim 1s alternate ease infinite;
+}
+#s_humanHead{
+    animation: s_humanHeadAnim 1s alternate ease infinite;
+}
+#s_humanHand{
+    animation: s_humanHandAnim 1s alternate ease infinite;
+}
+#s_leaf{
+    animation: s_leafAnim 1s alternate ease infinite;
+}
+@keyframes alienRLegAnim {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateZ(-1deg);
+    }
+}
+@keyframes alienLLegAnim {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateY(-10deg);
+    }
+}
+@keyframes alienHeadAnim {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateZ(-10deg);
+    }
+}
+@keyframes alienHatAnim {
+    0% {
+        transform: rotateZ(0deg) translateX(0);
+    }
+
+    100% {
+        transform: rotateZ(15deg) translateX(10px);
+    }
+}
+@keyframes s_humanTorsoAnim {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateZ(5deg);
+    }
+}
+@keyframes s_humanHeadAnim {
+    0% {
+        transform: rotateZ(0deg) translateX(-5px);
+    }
+
+    100% {
+        transform: rotateZ(-5deg) translateX(15px);
+    }
+}
+@keyframes s_humanHandAnim {
+    0% {
+        transform: rotateZ(0deg) translateY(0);
+    }
+
+    100% {
+        transform: rotateZ(-5deg)translateY(10px);
+    }
+}
+@keyframes s_leafAnim {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateZ(-5deg);
+    }
+}
+

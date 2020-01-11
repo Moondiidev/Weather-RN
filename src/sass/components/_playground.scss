@@ -1,7 +1,7 @@
 #particles-js{
     height: 100%;
     width: 100%;
-    background: linear-gradient(to bottom,  #928b82, #b0a99f);
+    background: linear-gradient(to bottom,  #928b82, #c5c0b7);
     position: absolute;
     top: 0;
     left: 0;
@@ -12,29 +12,46 @@
     display: grid;
     width: 100%;
     grid-template-columns: repeat(5,minmax(0.5rem,1fr));
-    margin-top: -4rem;
     margin-left: -3rem;
+    transform: translateY(-4rem);
+}
+.sun,
+.sunRay{
+    position: absolute;
+
 }
 .sun{
-    position: absolute;
-    top:0;
     right: 0;
-    height: 6rem;
+    top:0;
+    height: 10rem;
     width: auto;
+    z-index: 2;
+}
+.sunRay{
+    top: 0%;
+    right: 4%;
+    height: 100%;
 }
 .cloud{
     margin-right: 4rem;
     width: 40rem;
     z-index: 1;
 }
-.umbrellaWoman{
+.sprite{
     height: 200px;
     width: auto;
     position: absolute;
     bottom: 0;
-    left: 0;
+    left: 2rem;
 }
 .weatherInfo{
     @include absCenter;
     text-align: center;
+}
+.snowman{
+    height: 100px;
+    width: auto;
+    position: absolute;
+    bottom: 0;
+    right: 2rem;
 }
