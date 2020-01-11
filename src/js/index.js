@@ -12,7 +12,7 @@ $(function () {
         temperature: 0,
         icon: '',
     }
-    if(navigator.geolocation){
+    if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(pos => {
             data.long = pos.coords.longitude;
             data.lat = pos.coords.latitude;
@@ -20,11 +20,12 @@ $(function () {
             // USE cuurently->ICON to determine weather state. 
             // Options: clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day, or partly-cloudy-night
             $.ajax({
-                type:'GET',
+                type: 'GET',
                 url: data.api,
                 success: weather => {
                     data.temperature = weather.currently.temperature;
                     data.icon = weather.currently.icon;
+                    weatherTransform();
                 },
                 error: error => {
                     console.log(error);
@@ -32,9 +33,10 @@ $(function () {
                 }
             })
         })
-    }else{
+    } else {
         alert('Failed to get your location, please select your timezone manually')
     }
+    // Did not do fog,wind, partly cloudy day/night and sleet properly. Could expand and set up environment for each of them if you want to.
     const weatherTransform = () => {
         let html;
         if (data.icon === 'rain') {
@@ -266,21 +268,47 @@ $(function () {
             
         <img class= "snowman" src="img/snowman.svg" alt="">
             `
-        } else if (data.icon === 'cloudy') {
-            DOMselections.particles.css({
-               'background': 'linear-gradient(to bottom,#879aa5, #bcdff0)'
-            });
-
-            html = `
-            <div class="clouds">
-            <img class="cloud" src="img/cloud.svg" alt="">
-            <img class="cloud" src="img/cloud.svg" alt="">
-            <img class="cloud" src="img/cloud.svg" alt="">
-            <img class="cloud" src="img/cloud.svg" alt="">
-            <img class="cloud" src="img/cloud.svg" alt="">
-            </div>
-            
-                `
+        } else if (data.icon === 'cloudy' || data.icon === 'partly-cloudy-day' || data.icon === 'partly-cloudy-night') {
+            if(data.icon === 'partly-cloudy-night'){
+                DOMselections.particles.css({
+                    'background': 'linear-gradient(to bottom, #3e4244, #1a1b1b)'
+                });
+                html = `
+                <div class="clouds">
+                <img class="cloud" src="img/cloud.svg" alt="">
+                <img class="cloud" src="img/cloud.svg" alt="">
+                <img class="cloud" src="img/cloud.svg" alt="">
+                </div>
+                <img class="moon" src="img/moon.png" alt="">
+                    `
+            }
+            else if(data.icon === 'partly-cloudy-day'){
+                DOMselections.particles.css({
+                    'background': 'linear-gradient(to bottom,#879aa5, #bcdff0)'
+                });
+                html = `
+                <img class="sun" src="img/sun.png" alt="">
+                <div class="clouds">
+                <img class="cloud" src="img/cloud.svg" alt="">
+                <img class="cloud" src="img/cloud.svg" alt="">
+                <img class="cloud" src="img/cloud.svg" alt="">
+                </div>
+                    `
+            }
+            else if(data.icon === 'cloudy' || data.icon === 'foggy' || data.icon === 'wind' || data.icon === 'fog'){
+                DOMselections.particles.css({
+                    'background': 'linear-gradient(to bottom,#879aa5, #bcdff0)'
+                });
+                html = `
+                <div class="clouds">
+                <img class="cloud" src="img/cloud.svg" alt="">
+                <img class="cloud" src="img/cloud.svg" alt="">
+                <img class="cloud" src="img/cloud.svg" alt="">
+                <img class="cloud" src="img/cloud.svg" alt="">
+                <img class="cloud" src="img/cloud.svg" alt="">
+                </div>
+                    `
+            }
         } else if (data.icon === 'clear-day') {
             DOMselections.particles.css({
                 'background': 'linear-gradient(to bottom, #b1d8eb, #bfd4e0)'
@@ -543,8 +571,21 @@ $(function () {
                 </defs>
             </svg>
                 `
+        } else if (data.icon === 'clear-night') {
+            DOMselections.particles.css({
+                'background': 'linear-gradient(to bottom, #4b5255, #242727)'
+            });
+            html = `
+                <img class="moon" src="img/moon.png" alt="">
+            `
         }
         DOMselections.playground.append(html);
+        //TEST BTNS
+        $('.test-btn').on('click', function(){
+            data.icon = $(this).attr('rel');
+            DOMselections.particles.html('');
+            DOMselections.playground.html('');
+            weatherTransform();
+        })
     }
-    weatherTransform();
 });
