@@ -162,9 +162,9 @@
 
 html {
   font-size: 62.5%; }
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 500px) {
     html {
-      font-size: 8px; } }
+      font-size: 6px; } }
 
 body {
   color: white;
@@ -248,7 +248,7 @@ a {
   width: 100%; }
 
 .sprite {
-  height: 200px;
+  height: 20rem;
   width: auto;
   position: absolute;
   bottom: 0;
@@ -262,7 +262,7 @@ a {
   text-align: center; }
 
 .snowman {
-  height: 100px;
+  height: 10rem;
   width: auto;
   position: absolute;
   bottom: 0;
