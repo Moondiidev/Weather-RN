@@ -15,6 +15,7 @@ $(function () {
         icon: '',
         location: '',
         time: '',
+        nightOrNot: false
     }
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(pos => {
@@ -27,7 +28,7 @@ $(function () {
                 type: 'GET',
                 url: data.api,
                 success: weather => {
-                    data.temperature = ((weather.currently.temperature - 32) * 5/9).toFixed(1);
+                    data.temperature = ((weather.currently.temperature - 32) * 5 / 9).toFixed(1);
                     data.icon = weather.currently.icon;
                     data.location = weather.timezone;
                     updateUI();
@@ -42,30 +43,43 @@ $(function () {
     } else {
         alert('Failed to get your location, please select your timezone manually')
     }
-    
+
     const getTime = () => {
         const now = new Date;
         let minute = now.getMinutes();
-        if(minute < 10){
+        if (minute < 10) {
             minute = `0${minute}`;
         }
         data.time = `${now.getHours()}:${minute}`;
     }
-    const tickTock = () =>{
+    const tickTock = () => {
         const now = new Date;
         let seconds = now.getSeconds();
-        if(seconds === 0){
+        if (seconds === 0) {
             updateUI();
         }
-        setTimeout(tickTock,1000);
+        setTimeout(tickTock, 1000);
     }
     tickTock();
     const updateUI = () => {
         getTime();
         DOMselections.temperatureText.html(`${data.temperature}&deg;C`);
         DOMselections.locationText.html(`${data.location}<span class="time">${data.time} </span>`);
+        // Changing time color after updating its html. 
+        if (data.nightOrNot === false) {
+            $('.time').css({
+                'color': '#11999e',
+            })
+        }
+        else{
+            $('.time').css({
+                'color': 'yellow',
+            })
+        }
+
     }
     const colorChangeNight = () => {
+        data.nightOrNot = true;
         $('.time').css({
             'color': 'yellow',
         })
@@ -74,6 +88,7 @@ $(function () {
         $('.test-btn').removeClass('dayTime');
     }
     const colorChangeDay = () => {
+        data.nightOrNot = false;
         $('.time').css({
             'color': '#11999e',
         })
