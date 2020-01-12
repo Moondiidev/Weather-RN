@@ -196,3 +196,30 @@
         transform: rotateZ(-0.5deg);
     }
 }
+
+// LOADING ANIMATION
+@keyframes loadAnim{
+    0%{
+        transform: translate(-50%,-50%) rotateZ(0deg);
+    }
+    100%{
+        transform: translate(-50%,-50%) rotateZ(360deg);
+    }
+}
+// STOP LOADING AND START
+@keyframes leftOpenAnim{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+@keyframes rightOpenAnim{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(100%);
+    }
+}

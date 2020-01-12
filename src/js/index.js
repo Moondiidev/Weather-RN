@@ -4,7 +4,10 @@ $(function () {
         playground: $('#environment'),
         particles: $('#particles-js'),
         temperatureText: $('.temprature'),
-        locationText: $('.location')
+        locationText: $('.location'),
+        load__left: $('#load__left'),
+        load__right: $('#load__right'),
+        loader: $('#loader')
     }
     let data = {
         long: 0,
@@ -33,6 +36,9 @@ $(function () {
                     data.location = weather.timezone;
                     updateUI();
                     weatherTransform();
+                    DOMselections.load__left.addClass('leftOpenAnim');
+                    DOMselections.load__right.addClass('rightOpenAnim');
+                    DOMselections.loader.fadeOut(500);
                 },
                 error: error => {
                     console.log(error);

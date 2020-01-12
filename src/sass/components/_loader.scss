@@ -1,0 +1,33 @@
+#load {
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    position: fixed;
+    pointer-events: none;
+    &__left,
+    &__right {
+        background-color: #b83b5e;
+        display: inline-block;
+        width: 50%;
+        height: 100%;
+    }
+
+    &__left {
+        float: left;
+    }
+
+    &__right {
+    }
+}
+.leftOpenAnim{
+    animation: leftOpenAnim 0.5s ease forwards;
+}
+.rightOpenAnim{
+    animation: rightOpenAnim 0.5s ease forwards;
+}
+#loader {
+    width: 10rem;
+    height: 10rem;
+    @include absCenter;
+    animation: loadAnim 2s infinite linear;
+}

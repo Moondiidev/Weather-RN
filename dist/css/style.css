@@ -153,6 +153,24 @@
   100% {
     transform: rotateZ(-0.5deg); } }
 
+@keyframes loadAnim {
+  0% {
+    transform: translate(-50%, -50%) rotateZ(0deg); }
+  100% {
+    transform: translate(-50%, -50%) rotateZ(360deg); } }
+
+@keyframes leftOpenAnim {
+  0% {
+    transform: translateX(0); }
+  100% {
+    transform: translateX(-100%); } }
+
+@keyframes rightOpenAnim {
+  0% {
+    transform: translateX(0); }
+  100% {
+    transform: translateX(100%); } }
+
 *,
 *::after,
 *::before {
@@ -276,3 +294,37 @@ a {
 
 .day {
   color: #40514e; }
+
+#load {
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  position: fixed;
+  pointer-events: none; }
+  #load__left, #load__right {
+    background-color: #b83b5e;
+    display: inline-block;
+    width: 50%;
+    height: 100%; }
+  #load__left {
+    float: left; }
+
+.leftOpenAnim {
+  animation: leftOpenAnim 0.5s ease forwards; }
+
+.rightOpenAnim {
+  animation: rightOpenAnim 0.5s ease forwards; }
+
+#loader {
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: loadAnim 2s infinite linear; }
+
+footer {
+  background-color: #1e1e20;
+  color: white;
+  text-align: center; }
