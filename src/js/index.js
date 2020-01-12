@@ -90,17 +90,16 @@ $(function () {
             'color': 'yellow',
         })
         $('body').removeClass('day');
-        $('a').removeClass('day');
+        $('.test-btn').removeClass('day');
         $('.test-btn').removeClass('dayTime');
     }
     const colorChangeDay = () => {
         data.nightOrNot = false;
         $('.time').css({
-            'color': '#11999e',
+            'color': '#1ba2ac',
         })
         $('body').addClass('day');
-        $('a').addClass('day');
-        $('.test-btn').addClass('dayTime');
+        $('.test-btn').addClass('dayTime day');
     }
     // Did not do fog,wind, partly cloudy day/night and sleet properly. Could expand and set up environment for each of them if you want to.
     const weatherTransform = () => {
@@ -386,7 +385,7 @@ $(function () {
             }
         } else if (data.icon === 'clear-day') {
             DOMselections.particles.css({
-                'background': 'linear-gradient(to bottom, #e3fdfd, #cbf1f5)'
+                'background': 'linear-gradient(to bottom, #e3fdfd, #a6e3e9)'
             });
             colorChangeDay();
             html = `
