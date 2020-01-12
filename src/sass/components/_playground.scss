@@ -6,7 +6,7 @@
     top: 0;
     left: 0;
     z-index: -1;
-    padding-top: 4rem;
+    padding-top: 2rem;
 }
 
 .clouds {
@@ -14,7 +14,7 @@
     width: 100%;
     grid-template-columns: repeat(5, minmax(5rem, 1fr));
     margin-left: -3rem;
-    transform: translateY(-4rem);
+    transform: translateY(-1rem);
 }
 
 .sun,
@@ -37,7 +37,7 @@
 
 .cloud {
     margin-right: 4rem;
-    width: 40rem;
+    width: 100%;
 }
 
 .sprite {
