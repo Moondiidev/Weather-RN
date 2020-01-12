@@ -5,7 +5,13 @@
     top: 20%;
 }
 .test-btn{
+    font-weight: bold;
     display: inline-block;
     padding: 1rem;
-    border: 2px solid white;
+    border: 3px solid white;
+    transition: all 0.2s;
+    margin-bottom: 3px;
+    &:hover{
+        background-color: rgb(177, 177, 35);
+    }
 }

@@ -36,11 +36,31 @@ $(function () {
     } else {
         alert('Failed to get your location, please select your timezone manually')
     }
+    const colorChangeNight = () => {
+        $('.time').css({
+            'color': 'yellow',
+        })
+        $('body').removeClass('day');
+        $('a').removeClass('day');
+        $('.test-btn').removeClass('dayTime');
+    }
+    const colorChangeDay = () => {
+        $('.time').css({
+            'color': '#11999e',
+        })
+        $('body').addClass('day');
+        $('a').addClass('day');
+        $('.test-btn').addClass('dayTime');
+    }
     // Did not do fog,wind, partly cloudy day/night and sleet properly. Could expand and set up environment for each of them if you want to.
     const weatherTransform = () => {
         let html;
         if (data.icon === 'rain') {
             //if raining, load rain particles
+            colorChangeNight();
+            DOMselections.particles.css({
+                'background': 'linear-gradient(to bottom,#928b82, #c5c0b7)'
+            });
             particlesJS.load('particles-js', '../rain.json', () => {});
             html = `
             <div class="clouds">
@@ -186,7 +206,11 @@ $(function () {
             </svg>
             `
         } else if (data.icon === 'snow' || data.icon === 'sleet') {
+            colorChangeNight();
             //else if snowing, load snow particles
+            DOMselections.particles.css({
+                'background': 'linear-gradient(to bottom,#928b82, #c5c0b7)'
+            });
             particlesJS.load('particles-js', '../snow.json', () => {});
             html = `
             <div class="clouds">
@@ -269,10 +293,11 @@ $(function () {
         <img class= "snowman" src="img/snowman.svg" alt="">
             `
         } else if (data.icon === 'cloudy' || data.icon === 'partly-cloudy-day' || data.icon === 'partly-cloudy-night') {
-            if(data.icon === 'partly-cloudy-night'){
+            if (data.icon === 'partly-cloudy-night') {
                 DOMselections.particles.css({
                     'background': 'linear-gradient(to bottom, #3e4244, #1a1b1b)'
                 });
+                colorChangeNight();
                 html = `
                 <div class="clouds">
                 <img class="cloud" src="img/cloud.svg" alt="">
@@ -281,11 +306,11 @@ $(function () {
                 </div>
                 <img class="moon" src="img/moon.png" alt="">
                     `
-            }
-            else if(data.icon === 'partly-cloudy-day'){
+            } else if (data.icon === 'partly-cloudy-day') {
                 DOMselections.particles.css({
                     'background': 'linear-gradient(to bottom,#879aa5, #bcdff0)'
                 });
+                colorChangeDay();
                 html = `
                 <img class="sun" src="img/sun.png" alt="">
                 <div class="clouds">
@@ -294,10 +319,10 @@ $(function () {
                 <img class="cloud" src="img/cloud.svg" alt="">
                 </div>
                     `
-            }
-            else if(data.icon === 'cloudy' || data.icon === 'foggy' || data.icon === 'wind' || data.icon === 'fog'){
+            } else if (data.icon === 'cloudy' || data.icon === 'foggy' || data.icon === 'wind' || data.icon === 'fog') {
+                colorChangeNight();
                 DOMselections.particles.css({
-                    'background': 'linear-gradient(to bottom,#879aa5, #bcdff0)'
+                    'background': 'linear-gradient(to bottom,#928b82, #c5c0b7)'
                 });
                 html = `
                 <div class="clouds">
@@ -311,8 +336,9 @@ $(function () {
             }
         } else if (data.icon === 'clear-day') {
             DOMselections.particles.css({
-                'background': 'linear-gradient(to bottom, #b1d8eb, #bfd4e0)'
+                'background': 'linear-gradient(to bottom, #e3fdfd, #cbf1f5)'
             });
+            colorChangeDay();
             html = `
                 <img class="sun" src="img/sun.png" alt="">
                 <img class="sunRay" src="img/sunRay.svg">
@@ -575,17 +601,18 @@ $(function () {
             DOMselections.particles.css({
                 'background': 'linear-gradient(to bottom, #4b5255, #242727)'
             });
+            colorChangeNight();
             html = `
                 <img class="moon" src="img/moon.png" alt="">
             `
         }
         DOMselections.playground.append(html);
-        //TEST BTNS
-        $('.test-btn').on('click', function(){
-            data.icon = $(this).attr('rel');
-            DOMselections.particles.html('');
-            DOMselections.playground.html('');
-            weatherTransform();
-        })
     }
+    //TEST BTNS
+    $('.test-btn').on('click', function () {
+        data.icon = $(this).attr('rel');
+        DOMselections.particles.html('');
+        DOMselections.playground.html('');
+        weatherTransform();
+    })
 });
