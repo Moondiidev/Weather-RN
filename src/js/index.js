@@ -3,6 +3,8 @@ $(function () {
     const DOMselections = {
         playground: $('#environment'),
         particles: $('#particles-js'),
+        temperatureText: $('.temprature'),
+        locationText: $('.location')
     }
     let data = {
         long: 0,
@@ -11,6 +13,8 @@ $(function () {
         proxy: 'https://cors-anywhere.herokuapp.com/',
         temperature: 0,
         icon: '',
+        location: '',
+        time: '',
     }
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(pos => {
@@ -23,8 +27,10 @@ $(function () {
                 type: 'GET',
                 url: data.api,
                 success: weather => {
-                    data.temperature = weather.currently.temperature;
+                    data.temperature = ((weather.currently.temperature - 32) * 5/9).toFixed(1);
                     data.icon = weather.currently.icon;
+                    data.location = weather.timezone;
+                    updateUI();
                     weatherTransform();
                 },
                 error: error => {
@@ -35,6 +41,29 @@ $(function () {
         })
     } else {
         alert('Failed to get your location, please select your timezone manually')
+    }
+    
+    const getTime = () => {
+        const now = new Date;
+        let minute = now.getMinutes();
+        if(minute < 10){
+            minute = `0${minute}`;
+        }
+        data.time = `${now.getHours()}:${minute}`;
+    }
+    const tickTock = () =>{
+        const now = new Date;
+        let seconds = now.getSeconds();
+        if(seconds === 0){
+            updateUI();
+        }
+        setTimeout(tickTock,1000);
+    }
+    tickTock();
+    const updateUI = () => {
+        getTime();
+        DOMselections.temperatureText.html(`${data.temperature}&deg;C`);
+        DOMselections.locationText.html(`${data.location}<span class="time">${data.time} </span>`);
     }
     const colorChangeNight = () => {
         $('.time').css({
