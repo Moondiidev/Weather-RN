@@ -12343,6 +12343,7 @@
                     animateUI(); // Handle any additional animations
                   })
                   .catch(function (error) {
+                    updateUI(); // Update your UI with the new data
                     console.error(error);
                   });
               })
