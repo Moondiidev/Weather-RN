@@ -12314,44 +12314,44 @@
               time: "",
               nightOrNot: !1,
             };
-          navigator.geolocation
-            ? navigator.geolocation.getCurrentPosition(function (position) {
-                var url =
-                  "https://wttr.in/" +
-                  position.coords.latitude +
-                  "," +
-                  position.coords.longitude +
-                  "?format=%t+%C";
-                fetch(url)
-                  .then(function (response) {
-                    return response.text(); // Always processing the text regardless of the response status.
-                  })
-                  .then(function (text) {
-                    if (!text) {
-                      throw new Error("No weather data returned."); // Only throw an error if there is no text at all.
-                    }
-                    var parts = text.split("+"),
-                      temperature = parts[0].trim(),
-                      condition = parts[1].trim();
-                    n.temperature = temperature;
-                    n.icon = ""; // Since wttr.in does not provide icon data
-                    n.location = condition;
-                    e.load__left.addClass("leftOpenAnim");
-                    e.load__right.addClass("leftOpenAnim");
-                    e.loader.fadeOut(500);
-                    updateUI(); // Update your UI with the new data
-                    animateUI(); // Handle any additional animations
-                  })
-                  .catch(function (error) {
-                    updateUI(); // Update your UI with the new data
-                    console.error(error);
-                  });
-              })
-            : alert("Geolocation is not supported by your browser.");
+          //   navigator.geolocation
+          //     ? navigator.geolocation.getCurrentPosition(function (position) {
+          //         var url =
+          //           "https://wttr.in/" +
+          //           position.coords.latitude +
+          //           "," +
+          //           position.coords.longitude +
+          //           "?format=%t+%C";
+          //         fetch(url)
+          //           .then(function (response) {
+          //             return response.text(); // Always processing the text regardless of the response status.
+          //           })
+          //           .then(function (text) {
+          //             if (!text) {
+          //               throw new Error("No weather data returned."); // Only throw an error if there is no text at all.
+          //             }
+          //             var parts = text.split("+"),
+          //               temperature = parts[0].trim(),
+          //               condition = parts[1].trim();
+          //             n.temperature = temperature;
+          //             n.icon = ""; // Since wttr.in does not provide icon data
+          //             n.location = condition;
+          //             e.load__left.addClass("leftOpenAnim");
+          //             e.load__right.addClass("leftOpenAnim");
+          //             e.loader.fadeOut(500);
+          //             updateUI(); // Update your UI with the new data
+          //             animateUI(); // Handle any additional animations
+          //           })
+          //           .catch(function (error) {
+          //             updateUI(); // Update your UI with the new data
+          //             console.error(error);
+          //           });
+          //       })
+          //     : alert("Geolocation is not supported by your browser.");
 
-          !(function t() {
-            0 === new Date().getSeconds() && r(), setTimeout(t, 1e3);
-          })();
+          //   !(function t() {
+          //     0 === new Date().getSeconds() && r(), setTimeout(t, 1e3);
+          //   })();
           var r = function () {
               var r, i;
               (r = new Date()),
