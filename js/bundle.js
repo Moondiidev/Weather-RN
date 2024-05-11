@@ -12315,38 +12315,39 @@
               nightOrNot: !1,
             };
           navigator.geolocation
-            ? navigator.geolocation.getCurrentPosition(function (i) {
+            ? navigator.geolocation.getCurrentPosition(function (position) {
                 var url =
                   "https://wttr.in/" +
-                  i.coords.latitude +
+                  position.coords.latitude +
                   "," +
-                  i.coords.longitude +
+                  position.coords.longitude +
                   "?format=%t+%C";
                 fetch(url)
-                  .then(function (t) {
-                    return t.text();
+                  .then(function (response) {
+                    return response.text(); // Always processing the text regardless of the response status.
                   })
-                  .then(function (t) {
-                    var a = t.split("+"),
-                      r = a[0].trim(),
-                      o = a[1].trim();
-                    n.temperature = r;
-                    n.icon = "";
-                    n.location = o;
+                  .then(function (text) {
+                    if (!text) {
+                      throw new Error("No weather data returned."); // Only throw an error if there is no text at all.
+                    }
+                    var parts = text.split("+"),
+                      temperature = parts[0].trim(),
+                      condition = parts[1].trim();
+                    n.temperature = temperature;
+                    n.icon = ""; // Since wttr.in does not provide icon data
+                    n.location = condition;
                     e.load__left.addClass("leftOpenAnim");
                     e.load__right.addClass("leftOpenAnim");
                     e.loader.fadeOut(500);
-                    r();
-                    a();
+                    updateUI(); // Update your UI with the new data
+                    animateUI(); // Handle any additional animations
                   })
-                  .catch(function (t) {
-                    console.error(t);
-                    alert(
-                      "Could not get data, please check your internet connection."
-                    );
+                  .catch(function (error) {
+                    console.error(error);
                   });
               })
             : alert("Geolocation is not supported by your browser.");
+
           !(function t() {
             0 === new Date().getSeconds() && r(), setTimeout(t, 1e3);
           })();
